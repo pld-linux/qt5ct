@@ -2,7 +2,7 @@
 Summary:	Qt5 Configuration Tool
 Name:		qt5ct
 Version:	1.1
-Release:	1
+Release:	2
 License:	BSD
 Group:		Applications
 Source0:	https://downloads.sourceforge.net/qt5ct/%{name}-%{version}.tar.bz2
@@ -63,4 +63,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/qt5ct/colors
 %{_datadir}/qt5ct/qss
 %{_desktopdir}/qt5ct.desktop
-
+%dir %{_datadir}/qt5ct/translations
