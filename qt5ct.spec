@@ -6,7 +6,7 @@ Release:	1
 License:	BSD
 Group:		Applications
 Source0:	https://downloads.sourceforge.net/qt5ct/%{name}-%{version}.tar.bz2
-# Source0-md5:	69d85dbf89bb0e19c434cb7a53a29c0f
+# Source0-md5:	153bbe4c4dae0a81e9f85ac3f28b552f
 URL:		https://sourceforge.net/projects/qt5ct/
 BuildRequires:	Qt5Concurrent-devel >= %{qtver}
 BuildRequires:	Qt5Core-devel >= %{qtver}
