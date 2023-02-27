@@ -16,6 +16,7 @@ BuildRequires:	Qt5ThemeSupport-devel >= %{qtver}
 BuildRequires:	Qt5Widgets-devel >= %{qtver}
 BuildRequires:	qt5-linguist >= %{qtver}
 BuildRequires:	qt5-qmake >= %{qtver}
+BuildRequires:	rpmbuild(macros) >= 2.016
 Requires:	Qt5Core >= %{qtver}
 Requires:	Qt5DBus >= %{qtver}
 Requires:	Qt5Gui >= %{qtver}
@@ -30,7 +31,7 @@ etc.) under DE/WM without Qt integration.
 %setup -q
 
 %build
-qmake-qt5
+%{qmake_qt5}
 %{__make}
 
 %install
