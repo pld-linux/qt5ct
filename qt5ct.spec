@@ -1,4 +1,4 @@
-%define		qtver	5.8
+%define		qtver	5.12.0
 Summary:	Qt5 Configuration Tool
 Name:		qt5ct
 Version:	1.6
@@ -14,8 +14,11 @@ BuildRequires:	Qt5DBus-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5ThemeSupport-devel >= %{qtver}
 BuildRequires:	Qt5Widgets-devel >= %{qtver}
+BuildRequires:	cmake >= 3.11.0
+BuildRequires:	libstdc++-devel >= 6:4.8.1
 BuildRequires:	qt5-linguist >= %{qtver}
 BuildRequires:	qt5-qmake >= %{qtver}
+BuildRequires:	qt5-qttools >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 2.016
 Requires:	Qt5Core >= %{qtver}
 Requires:	Qt5DBus >= %{qtver}
@@ -31,14 +34,16 @@ etc.) under DE/WM without Qt integration.
 %setup -q
 
 %build
-%{qmake_qt5}
+install -d build
+cd build
+%cmake ..
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	INSTALL_ROOT=$RPM_BUILD_ROOT
+%{__make} -C build install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}/translations
 cp -p src/qt5ct/translations/*.qm $RPM_BUILD_ROOT%{_datadir}/%{name}/translations
@@ -58,6 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_bindir}/qt5ct
+%attr(755,root,root) %{_libdir}/libqt5ct-common.so.%{version}
 %attr(755,root,root) %{_libdir}/qt5/plugins/platformthemes/libqt5ct.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/styles/libqt5ct-style.so
 %dir %{_datadir}/qt5ct
