@@ -1,12 +1,12 @@
 %define		qtver	5.15.0
 Summary:	Qt5 Configuration Tool
 Name:		qt5ct
-Version:	1.7
+Version:	1.8
 Release:	1
 License:	BSD
 Group:		Applications
 Source0:	https://downloads.sourceforge.net/qt5ct/%{name}-%{version}.tar.bz2
-# Source0-md5:	cd06d8583e5ab9538fe32f62fb979a1f
+# Source0-md5:	ba865f840cab31a7a68d217c776bd86b
 URL:		https://sourceforge.net/projects/qt5ct/
 BuildRequires:	Qt5Concurrent-devel >= %{qtver}
 BuildRequires:	Qt5Core-devel >= %{qtver}
